@@ -11,6 +11,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 @RequiredArgsConstructor
 @Transactional
@@ -32,5 +35,21 @@ public class UserService {
 
         User saved = userRepository.save(user);
         return UserMapper.toDto(saved);
+    }
+
+    public List<UserDto> getAllUsers() {
+        return userRepository.findAll().stream()
+                .map(UserMapper::toDto)
+                .collect(Collectors.toList());
+    }
+
+    public UserDto getUserById(Long id) {
+        return userRepository.findById(id)
+                .map(UserMapper::toDto)
+                .orElseThrow(() -> new IllegalArgumentException("User not found"));
+    }
+
+    public void deleteUser(Long id) {
+        userRepository.deleteById(id);
     }
 }
