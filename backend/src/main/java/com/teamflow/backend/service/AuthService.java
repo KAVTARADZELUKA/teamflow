@@ -9,6 +9,7 @@ import com.teamflow.backend.model.User;
 import com.teamflow.backend.repository.UserRepository;
 import com.teamflow.backend.security.JwtTokenProvider;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -18,6 +19,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class AuthService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
@@ -26,7 +28,10 @@ public class AuthService {
 
     @Transactional
     public AuthResponse register(CreateUserRequest request) {
+        log.info("Attempting to register user with email: {}", request.email());
+
         if (userRepository.existsByEmail(request.email())) {
+            log.warn("Registration failed: email {} already in use", request.email());
             throw new BadRequestException("Email already in use");
         }
 
@@ -38,15 +43,19 @@ public class AuthService {
                 .build();
 
         userRepository.save(user);
+        log.info("User registered successfully: {}", user.getEmail());
 
         String token = jwtTokenProvider.generateToken(user.getEmail());
         return new AuthResponse(token);
     }
 
     public AuthResponse login(AuthRequest request) {
+        log.info("Login attempt for email: {}", request.email());
+
         Authentication auth = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(request.email(), request.password())
         );
+        log.debug("Authentication successful, generating token for {}", request.email());
         String token = jwtTokenProvider.generateToken(request.email());
         return new AuthResponse(token);
     }
