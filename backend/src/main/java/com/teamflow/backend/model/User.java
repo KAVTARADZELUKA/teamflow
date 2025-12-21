@@ -1,5 +1,6 @@
 package com.teamflow.backend.model;
 
+import com.teamflow.backend.model.enums.Role;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;

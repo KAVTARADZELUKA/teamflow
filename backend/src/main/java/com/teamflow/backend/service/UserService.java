@@ -1,15 +1,11 @@
 package com.teamflow.backend.service;
 
-import com.teamflow.backend.dto.CreateUserRequest;
 import com.teamflow.backend.dto.UserDto;
 import com.teamflow.backend.mapper.UserMapper;
-import com.teamflow.backend.model.Role;
-import com.teamflow.backend.model.User;
 import com.teamflow.backend.repository.UserRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,27 +17,6 @@ import java.util.stream.Collectors;
 @Slf4j
 public class UserService {
     private final UserRepository userRepository;
-    private final PasswordEncoder passwordEncoder;
-
-    public UserDto createUser(CreateUserRequest request) {
-        log.info("Creating user with email: {}", request.email());
-
-        if (userRepository.existsByEmail(request.email())){
-            log.error("User creation failed: email {} already exists", request.email());
-            throw new IllegalArgumentException("Email already exists");
-        }
-
-        User user = User.builder()
-                .username(request.username())
-                .email(request.email())
-                .password(passwordEncoder.encode(request.password()))
-                .role(Role.USER)
-                .build();
-
-        User saved = userRepository.save(user);
-        log.info("User created successfully: {}", saved.getId());
-        return UserMapper.toDto(saved);
-    }
 
     public List<UserDto> getAllUsers() {
         log.debug("Fetching all users");

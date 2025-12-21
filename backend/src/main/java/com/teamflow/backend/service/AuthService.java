@@ -4,7 +4,7 @@ import com.teamflow.backend.dto.AuthRequest;
 import com.teamflow.backend.dto.AuthResponse;
 import com.teamflow.backend.dto.CreateUserRequest;
 import com.teamflow.backend.exception.BadRequestException;
-import com.teamflow.backend.model.Role;
+import com.teamflow.backend.model.enums.Role;
 import com.teamflow.backend.model.User;
 import com.teamflow.backend.repository.UserRepository;
 import com.teamflow.backend.security.JwtTokenProvider;

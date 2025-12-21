@@ -1,6 +1,6 @@
 package com.teamflow.backend.dto;
 
-import com.teamflow.backend.model.Role;
+import com.teamflow.backend.model.enums.Role;
 
 import java.time.Instant;
 
