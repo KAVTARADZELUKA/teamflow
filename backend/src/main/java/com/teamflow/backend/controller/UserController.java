@@ -1,7 +1,7 @@
 package com.teamflow.backend.controller;
 
 import com.teamflow.backend.dto.UserDto;
-import com.teamflow.backend.service.UserService;
+import com.teamflow.backend.service.impl.UserServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -12,7 +12,7 @@ import java.util.List;
 @RequestMapping("/api/users")
 @RequiredArgsConstructor
 public class UserController {
-    private final UserService userService;
+    private final UserServiceImpl userService;
 
     @GetMapping
     public List<UserDto> getAllUsers() {
