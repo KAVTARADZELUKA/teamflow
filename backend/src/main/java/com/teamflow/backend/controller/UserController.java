@@ -1,6 +1,6 @@
 package com.teamflow.backend.controller;
 
-import com.teamflow.backend.dto.UserDto;
+import com.teamflow.backend.dto.user.UserDto;
 import com.teamflow.backend.service.impl.UserServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

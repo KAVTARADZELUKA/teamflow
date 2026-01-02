@@ -1,6 +1,6 @@
 package com.teamflow.backend.service;
 
-import com.teamflow.backend.dto.UserDto;
+import com.teamflow.backend.dto.user.UserDto;
 
 import java.util.List;
 

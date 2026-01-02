@@ -1,4 +1,4 @@
-package com.teamflow.backend.dto;
+package com.teamflow.backend.dto.user;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

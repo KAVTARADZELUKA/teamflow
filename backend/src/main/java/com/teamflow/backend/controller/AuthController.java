@@ -1,8 +1,8 @@
 package com.teamflow.backend.controller;
 
-import com.teamflow.backend.dto.AuthRequest;
-import com.teamflow.backend.dto.AuthResponse;
-import com.teamflow.backend.dto.CreateUserRequest;
+import com.teamflow.backend.dto.auth.AuthRequest;
+import com.teamflow.backend.dto.auth.AuthResponse;
+import com.teamflow.backend.dto.user.CreateUserRequest;
 import com.teamflow.backend.service.impl.AuthServiceImpl;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

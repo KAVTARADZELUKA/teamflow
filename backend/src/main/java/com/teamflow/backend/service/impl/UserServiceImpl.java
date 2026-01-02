@@ -1,6 +1,6 @@
 package com.teamflow.backend.service.impl;
 
-import com.teamflow.backend.dto.UserDto;
+import com.teamflow.backend.dto.user.UserDto;
 import com.teamflow.backend.mapper.UserMapper;
 import com.teamflow.backend.repository.UserRepository;
 import com.teamflow.backend.service.UserService;

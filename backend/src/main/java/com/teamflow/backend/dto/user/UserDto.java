@@ -1,4 +1,4 @@
-package com.teamflow.backend.dto;
+package com.teamflow.backend.dto.user;
 
 import com.teamflow.backend.model.enums.Role;
 
