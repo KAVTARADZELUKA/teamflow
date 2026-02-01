@@ -1,9 +1,9 @@
 package com.teamflow.backend.controller;
 
-import com.teamflow.backend.dto.AuthRequest;
-import com.teamflow.backend.dto.AuthResponse;
-import com.teamflow.backend.dto.CreateUserRequest;
-import com.teamflow.backend.service.AuthService;
+import com.teamflow.backend.dto.auth.AuthRequest;
+import com.teamflow.backend.dto.auth.AuthResponse;
+import com.teamflow.backend.dto.user.CreateUserRequest;
+import com.teamflow.backend.service.impl.AuthServiceImpl;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/auth")
 @RequiredArgsConstructor
 public class AuthController {
-    private final AuthService authService;
+    private final AuthServiceImpl authService;
 
     @PostMapping("/register")
     @ResponseStatus(HttpStatus.CREATED)
