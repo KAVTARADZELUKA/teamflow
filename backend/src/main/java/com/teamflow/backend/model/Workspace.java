@@ -1,6 +1,10 @@
 package com.teamflow.backend.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -9,6 +13,10 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "workspaces")
 @EntityListeners(AuditingEntityListener.class)
+@AllArgsConstructor
+@NoArgsConstructor
+@Setter
+@Getter
 public class Workspace {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -3,6 +3,8 @@ package com.teamflow.backend.model;
 import com.teamflow.backend.model.enums.TaskPriority;
 import com.teamflow.backend.model.enums.TaskStatus;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDate;
@@ -10,6 +12,8 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "tasks")
+@Setter
+@Getter
 public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

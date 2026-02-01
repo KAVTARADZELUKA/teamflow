@@ -2,6 +2,8 @@ package com.teamflow.backend.model;
 
 import com.teamflow.backend.model.enums.ProjectStatus;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -12,6 +14,8 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "projects")
 @EntityListeners(AuditingEntityListener.class)
+@Getter
+@Setter
 public class Project {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

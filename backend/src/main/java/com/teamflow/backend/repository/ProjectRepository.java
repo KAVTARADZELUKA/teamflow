@@ -1,12 +1,13 @@
 package com.teamflow.backend.repository;
 
 import com.teamflow.backend.model.Project;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
+import com.teamflow.backend.model.Workspace;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface ProjectRepository extends JpaRepository<Project, Long> {
-    Page<Project> findAllByWorkspaceId(Long workspaceId, Pageable pageable);
+    List<Project> findByWorkspace(Workspace workspace);
 }

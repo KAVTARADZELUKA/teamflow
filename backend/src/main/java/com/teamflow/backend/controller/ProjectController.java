@@ -2,6 +2,8 @@ package com.teamflow.backend.controller;
 
 import com.teamflow.backend.dto.project.CreateProjectDTO;
 import com.teamflow.backend.dto.project.ProjectResponseDTO;
+import com.teamflow.backend.service.ProjectService;
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/projects")
+@AllArgsConstructor
 public class ProjectController {
     private final ProjectService projectService;
 
